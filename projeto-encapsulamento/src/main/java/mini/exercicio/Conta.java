@@ -41,10 +41,12 @@ public class Conta {
     Scanner in = new Scanner(System.in);
     System.out.println("Digite o valor de saque desejado?");
     Double valorSaqueDigitado = in.nextDouble();
-    setValorConta(valorConta - valorSaqueDigitado);
+   
     
-    if(valorSaqueDigitado > 200 || valorSaqueDigitado > valorConta){
-    System.out.println("Valor de Saque Inválido");
+    if(valorSaqueDigitado <= valorConta){
+    setValorConta(valorConta - valorSaqueDigitado);
+    }else{
+    System.out.println("Não há cheque especial.");
     }
     }
     
@@ -52,15 +54,20 @@ public class Conta {
     Scanner in = new Scanner(System.in);
     System.out.println("Digite o valor de depósito desejado: ");
     Double valorDepositoDigitado = in.nextDouble();
+    
+    if(this.valorConta+valorDepositoDigitado <= 200){
     setValorConta(valorConta + valorDepositoDigitado);
+    }else{
+    System.out.println("Valor limite excedido.");
+    }
     }
     
-    void verificarDetalhesDaConta(){
+    public void verificarDetalhesDaConta(){
         System.out.println("Nome do titular: " + nomeTitular);
         System.out.println("Saldo atual: " + valorConta);
     }
     
-    void verificarConta(){
+    public void verificarConta(){
     String situacaoFinanceira = "";
     
     System.out.println("Saldo atual: " + valorConta);

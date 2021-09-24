@@ -31,7 +31,7 @@ public class AppConta {
             break;
             case 3:
             conta1.verificarDetalhesDaConta();
-            System.out.println("");
+            break;
             case 4:
             break;
             default: System.out.println("Opcao invalida");
